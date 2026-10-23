@@ -38,7 +38,7 @@ void World::Draw(ShaderManager& shader_manager, Camera& camera)
         shader.SetMat4("view", camera.GetView());
         shader.SetMat4("projection", camera.GetProjection());
         shader.SetVec3("cameraPosition", camera.GetWoldPosition());
-        shader.SetVec3("fogColor", glm::vec3{0.65f, 0.80f,1.00f});
+        shader.SetVec3("fogColor", glm::vec3{0.65f, 0.80f, 1.00f});
         shader.SetFloat("fogStart", 80.f);
         shader.SetFloat("fogEnd", 100.f);
         chunk->Draw();
@@ -48,7 +48,7 @@ void World::Draw(ShaderManager& shader_manager, Camera& camera)
 int World::WorldToChunk(float value)
 {
     // return static_cast<int>(std::floor((value + CHUNK_SIZE * 0.5f) / CHUNK_SIZE));
-    return static_cast<int>(std::floor(value / Map::Size));
+    return static_cast<int>(std::floor(value / CHUNK_SIZE));
 }
 
 void World::LoadChunk(const ChunkCoord& coord)
