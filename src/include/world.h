@@ -1,3 +1,4 @@
+#include "config.h"
 #include "chunk.h"
 #include "camera.h"
 #include "shadermanager.h"
@@ -33,9 +34,8 @@ public:
 private:
     unsigned int seed_;
     int radius = 16;
-    constexpr static int CHUNK_SIZE = 16;
-    int currentChunkX_ = 999999;
-    int currentChunkZ_ = 999999;
+    int currentChunkX_ = MAX_CURRENT_CHUNK_X;
+    int currentChunkZ_ = MAX_CURRENT_CHUNK_Z;
     std::unordered_map<ChunkCoord, std::unique_ptr<Chunk>, ChunkCoordHash> chunks_;
 
     int WorldToChunk(float value);
