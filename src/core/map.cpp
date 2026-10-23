@@ -23,7 +23,8 @@ void Map::Generate(int chunkX, int chunkZ)
             int worldZ = chunkZ * CHUNK_SIZE + z;
             float n = noise.Noise(worldX * frequency, worldZ * frequency);
             int height = baseHeight + static_cast<int>(n * amplitude);
-            heightMap[Index(x + CHUNK_BORDER, z + CHUNK_BORDER)] = std::max(1, height);
+            height = std::clamp(height, 1, CHUNK_HEIGHT);
+            heightMap[Index(x + CHUNK_BORDER, z + CHUNK_BORDER)] = height;
         }
     }
 }

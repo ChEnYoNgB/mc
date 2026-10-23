@@ -123,7 +123,7 @@ int main(void)
     if(!window)
         return -1;
 
-    glm::vec3 worldPosition{0.0f, 20.0f, 0.0f};
+    glm::vec3 worldPosition{0.0f, 0.0f, 0.0f};
     glm::vec3 forward{0.0f, 0.0f, -1.0f};
     glm::vec3 up{0.0f, 1.0f, 0.0f};
     float cameraSpeed{10.0f};

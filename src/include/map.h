@@ -15,7 +15,7 @@ public:
 private:
     static constexpr float frequency = 0.05f;
     static constexpr float amplitude = 8.0f;
-    static constexpr int baseHeight = 10;
+    static constexpr int baseHeight = CHUNK_HEIGHT / 2;
     unsigned int seed;
     std::vector<int> heightMap = std::vector<int>(StorageSize * StorageSize, 0);
     std::vector<BlockType> blockCache{static_cast<std::size_t>(CHUNK_SIZE) * CHUNK_HEIGHT * CHUNK_SIZE, BlockType::Air};

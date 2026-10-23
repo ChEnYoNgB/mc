@@ -178,7 +178,7 @@ void Terrain::BuildTerrainMesh(const Map& map)
         for(int z = 0; z < size; ++z)
         {
             int height = map.GetHeight(x, z);
-            for(int y=0; y < height; ++y)
+            for(int y = 0; y < height; ++y)
             {
                 if(!IsSolid(map, x + 1, y, z))
                 {
@@ -336,6 +336,8 @@ void Terrain::AddTopFace(const Map& map, float x, float y, float z)
         faceBrightness
     );
 
+    y = y - CHUNK_HEIGHT / 2;
+
     CubeVertex face[4] =
     {
         {x,     y + 1, z + 1, 0.0f, 0.0f, textureIndex, b0},
@@ -391,6 +393,8 @@ void Terrain::AddFrontFace(const Map& map, float x, float y, float z)
         {0,1,0},
         faceBrightness
     );
+
+    y = y - CHUNK_HEIGHT / 2;
 
     CubeVertex face[] =
     {
@@ -490,6 +494,8 @@ void Terrain::AddBehindFace(const Map& map, float x, float y, float z)
         faceBrightness
     );
 
+    y = y - CHUNK_HEIGHT / 2;
+
     CubeVertex face[] = {
         {x + 1, y,     z, 0.0f, 0.0f, textureIndex, b0},
         {x,     y,     z, 1.0f, 0.0f, textureIndex, b1},
@@ -551,6 +557,8 @@ void Terrain::AddLeftFace(const Map& map, float x, float y, float z)
         {0, 1, 0},      // +Y
         faceBrightness
     );
+
+    y = y - CHUNK_HEIGHT / 2;
 
     CubeVertex face[] = {
         {x, y,     z,     0.0f, 0.0f, textureIndex, b0},
@@ -614,6 +622,8 @@ void Terrain::AddRightFace(const Map& map, float x, float y, float z)
         faceBrightness
     );
 
+    y = y - CHUNK_HEIGHT / 2;
+
     CubeVertex face[] = {
         {x + 1, y,     z + 1, 0.0f, 0.0f, textureIndex, b0},
         {x + 1, y,     z,     1.0f, 0.0f, textureIndex, b1},
@@ -676,6 +686,7 @@ void Terrain::AddDownFace(const Map& map, float x, float y, float z)
         faceBrightness
     );
 
+    y = y - CHUNK_HEIGHT / 2;
     CubeVertex face[] = {
         {x,     y, z,     0.0f, 0.0f, textureIndex, b0},
         {x + 1, y, z,     1.0f, 0.0f, textureIndex, b1},
